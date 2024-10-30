@@ -1,4 +1,4 @@
-import type { OnRpcRequestHandler } from '@metamask/snaps-sdk';
+import type { OnInstallHandler, OnRpcRequestHandler } from '@metamask/snaps-sdk';
 import { Box, Text, Bold } from '@metamask/snaps-sdk/jsx';
 
 /**
@@ -40,4 +40,17 @@ export const onRpcRequest: OnRpcRequestHandler = async ({
     default:
       throw new Error('Method not found.');
   }
+};
+
+function apiGetFFInfo(){
+  // mimic API call
+  return{
+    ffNumber:"ABCDE1234",
+    firstName: "Ayush",
+    lastName: "Sawarn"
+  }
+}
+
+export const onInstall: OnInstallHandler = async () => {
+  const ffInfo = apiGetFFInfo()
 };

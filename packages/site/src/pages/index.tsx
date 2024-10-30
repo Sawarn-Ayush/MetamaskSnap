@@ -139,7 +139,7 @@ const Index = () => {
             fullWidth
           />
         )}
-        {!installedSnap && (
+        {true && (
           <Card
             content={{
               title: 'Connect',
