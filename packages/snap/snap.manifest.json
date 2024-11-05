@@ -1,5 +1,5 @@
 {
-  "version": "0.1.3",
+  "version": "0.1.9",
   "description": "Air India Snap",
   "proposedName": "Air India Snap",
   "repository": {
@@ -7,7 +7,7 @@
     "url": "https://github.com/Sawarn-Ayush/MetamaskSnap.git"
   },
   "source": {
-    "shasum": "dWb2SenABax/u5MX6oInzVxYB4+SRjAgKI38OWVDU0k=",
+    "shasum": "Gx/R1bEJ3u39nYzeFUoKH2OuGFeUGi6UAr9r6ZOiGgU=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",

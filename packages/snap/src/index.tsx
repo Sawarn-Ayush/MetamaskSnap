@@ -1,5 +1,7 @@
 import type { OnInstallHandler, OnRpcRequestHandler } from '@metamask/snaps-sdk';
 import { Box, Text, Bold } from '@metamask/snaps-sdk/jsx';
+import { Copyable, Divider, Heading } from '@metamask/snaps-sdk/jsx';
+
 
 /**
  * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.
@@ -42,15 +44,33 @@ export const onRpcRequest: OnRpcRequestHandler = async ({
   }
 };
 
-function apiGetFFInfo(){
+function apiGetFFInfo() {
   // mimic API call
-  return{
-    ffNumber:"ABCDE1234",
+  return {
+    ffNumber: "ABCDE1234",
     firstName: "Ayush",
     lastName: "Sawarn"
-  }
+  };
 }
 
 export const onInstall: OnInstallHandler = async () => {
-  const ffInfo = apiGetFFInfo()
+  const ffInfo = apiGetFFInfo();
+
+  const componentContent = (
+    <Box>
+      <Heading>Air India</Heading>
+      <Text>Hi {ffInfo.firstName}, Welcome to Air India Snap!!</Text>
+      <Text>This is your frequent flyer number:</Text>
+      <Divider />
+      <Copyable value={ffInfo.ffNumber} />
+    </Box>
+  );
+
+  await snap.request({
+    method: 'snap_dialog',
+    params: {
+      type: 'alert',
+      content: componentContent,
+    },
+  });
 };
